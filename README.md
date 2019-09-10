@@ -113,14 +113,14 @@ class DocumentInfoDrawer extends Component{
 ### Right Drawer Component
 ```js
 const RightDrawer = ({ children, onClose }) =>{
-	return (
-		<div className="right-drawer-container">
-			<div className="right-drawer-inner">
-				<button onClick={onClose}>close</button>
-				{children}
-			</div>
-		</div>
-	)
+  return (
+    <div className="right-drawer-container">
+      <div className="right-drawer-inner">
+        <button onClick={onClose}>close</button>
+        {children}
+      </div>
+    </div>
+  )
 }
 ```
 
