@@ -138,6 +138,86 @@ var lastSegment = parts.pop() || parts.pop();
 console.log(lastSegment);
 ```
 
+# React Router
+### &lt;BrowserRouter&gt;
+- A Router that uses the HTML5 history AP
+- children: node: A **single child element** to render.
+
+```js
+<BrowserRouter>
+  <App/>
+</BrowserRouter>
+```
+
+```js
+<BrowserRouter>
+  <div>
+    <Header />
+    <Switch>
+      <Route path="/" component={HomePage} exact={true} />
+      <Route path="/drawers" component={DrawerView} />
+      <Route component={NoMatch}/>
+    </Switch>
+  </div>
+</BrowserRouter>
+```
+
+
+
+
+<hr />
+
+### &lt;Route&gt;
+ To render some UI when a location matches the route’s path.
+- component
+- exact
+- path
+
+```js
+<Switch>
+  <Route
+    path={`/drawers/html`}
+    component={DocumentInfoDrawer}
+  />
+  <Route
+    path={`/drawers/css`}
+    component={DocumentInfoDrawer}
+  />
+  <Route
+    path={`/drawers/js`}
+    component={DocumentInfoDrawer}
+  />
+</Switch>
+```
+
+
+### &lt;Switch&gt;
+- Renders the first child <Route> or <Redirect> that matches the location.
+- children: node
+
+
+### withRouter
+You can get access to the history object’s properties and the closest <Route>'s match via the withRouter higher-order component.
+
+```js
+import React from "react";
+import { withRouter } from "react-router";
+
+// A simple component that shows the pathname of the current location
+class ShowTheLocation extends React.Component {
+  render() {
+    const { match, location, history } = this.props;
+
+    return <div>You are now at {location.pathname}</div>;
+  }
+}
+
+const ShowTheLocationWithRouter = withRouter(ShowTheLocation);
+```
+
+
+<hr />
+
 ## References
 - [React Router: BrowserRouter](https://reacttraining.com/react-router/web/api/BrowserRouter)
 - [React Router: Route](https://reacttraining.com/react-router/web/api/Route)
